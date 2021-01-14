@@ -32,6 +32,18 @@ class Search extends React.Component {
         console.error(error);
       });
   };
+
+  trending = () => {
+    fetch(
+      `https://api.giphy.com/v1/gifs/trending?api_key=bYFMRHm7P79nLgVnPaLhYwOxbIgn3CdZ`
+    )
+      .then((response) => response.json())
+      .then((response) => {
+        this.props.update(response.data);
+      })
+
+      .catch((error) => console.error(error));
+  }
   render() {
     console.log(this.state.data);
     return (
@@ -44,6 +56,7 @@ class Search extends React.Component {
         <button onClick={this.search} value={this.state.searchKey}>
           Search
         </button>
+        <button onClick = {this.trending}>Trending</button>
       </div>
     );
   }
