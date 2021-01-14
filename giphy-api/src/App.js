@@ -39,6 +39,7 @@ class App extends Component {
         <div className="nav">
           <Searchbar update={this.updateData} />
         </div>
+
         <div className="display">
           {this.state.data.map((item, index) => (
             <GifCard key={index} url={item.images.original.url} />

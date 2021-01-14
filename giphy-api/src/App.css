@@ -16,12 +16,16 @@
 
 .nav {
   background-color: black;
+  margin-bottom: 10px;
+  display: flex;
 }
 
 .search {
   display: flex;
-  flex-direction: column;
-  width: 20%;
-  margin: 0.3em auto;
-  padding: 0.2em;
+  margin: 5px auto;
+  padding: 0.5em;
+}
+.search button {
+  margin-left: 5px;
+  padding: 0.3em;
 }
