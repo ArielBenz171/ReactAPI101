@@ -11,7 +11,6 @@ class Search extends React.Component {
   }
 
   updateSearch = (event) => {
-    console.log(event.target.value);
     this.setState({ searchKey: event.target.value });
   };
 
@@ -34,7 +33,7 @@ class Search extends React.Component {
 
   search = (event) => {
     let searchTerm = event.target.value;
-    console.log(searchTerm);
+
     fetch(
       `https://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=bYFMRHm7P79nLgVnPaLhYwOxbIgn3CdZ`
     )
@@ -50,8 +49,19 @@ class Search extends React.Component {
         console.error(error);
       });
   };
+
+  trending = () => {
+    fetch(
+      `https://api.giphy.com/v1/gifs/trending?api_key=bYFMRHm7P79nLgVnPaLhYwOxbIgn3CdZ`
+    )
+      .then((response) => response.json())
+      .then((response) => {
+        this.props.update(response.data);
+      })
+
+      .catch((error) => console.error(error));
+  };
   render() {
-    console.log(this.state.data);
     return (
       <div className="search">
         <input
@@ -62,9 +72,12 @@ class Search extends React.Component {
         <button onClick={this.search} value={this.state.searchKey}>
           Search
         </button>
+
         <button onClick={this.random} value="random">
           Random GIF
         </button>
+
+        <button onClick={this.trending}>Trending</button>
       </div>
     );
   }
