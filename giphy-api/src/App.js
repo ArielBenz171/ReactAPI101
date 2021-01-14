@@ -33,7 +33,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.data);
     return (
       <div>
         <div className="nav">
@@ -45,10 +44,6 @@ class App extends Component {
             <GifCard key={index} url={item.images.original.url} />
           ))}
         </div>
-
-        {/* {this.state.displayTrending ? this.trendingGifs : <p>nothing</p>} */}
-
-        {/* <img src={this.state.data[0].embed_url} /> */}
       </div>
     );
   }
